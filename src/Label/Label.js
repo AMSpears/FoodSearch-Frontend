@@ -1,7 +1,7 @@
 import React from 'react'
-import PropTypes from 'PropTypes'
+import PropTypes from 'prop-types'
 
-const Label = ({ labelName, require }) => {
+const Label = ({ labelName, required }) => {
 	let requiredStyle = { color: 'rgb(255,0,0)' }
 	const fieldRequired = <span style={requiredStyle}>*</span>
 	return (
@@ -11,8 +11,8 @@ const Label = ({ labelName, require }) => {
 	)
 }
 
-label.PropTypes = {
-	labelName: PropTypes.string.inRequired,
+Label.propTypes = {
+	labelName: PropTypes.string.isRequired,
 	required: PropTypes.bool
 }
 
