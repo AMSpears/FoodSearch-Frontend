@@ -23,18 +23,15 @@ const Header = ({ ...props }) => {
 						Sign Out
 					</Link>
 				) : (
-					(
-						<Link to="/signin" onClick={props.onViewChange}>
-							Sign In
-						</Link>
-					) && (
-						<Link to="/signup" onClick={props.onViewChange}>
-							Sign Up
-						</Link>
-					)
+					<Link to="/signin" onClick={props.onViewChange}>
+						Sign In
+					</Link>()
 				)}
+				<Link to="/signup" onClick={props.onViewChange}>
+					Sign Up
+				</Link>
 			</div>
-			
+
 			{props.alertOn ? <Alert msg={props.msg} /> : <p />}
 		</div>
 	)
