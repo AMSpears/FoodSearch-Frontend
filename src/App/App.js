@@ -113,7 +113,7 @@ class App extends Component {
 								}}
 							/>
 							<Route
-								path="/login"
+								path="/signin"
 								render={props => {
 									return (
 										<LogInForm

@@ -1,6 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import Label from '../Label/Label'
+import './TextInput.css'
 
 const TextInput = ({
 	labelName,
@@ -16,21 +17,23 @@ const TextInput = ({
 	...props
 }) => {
 	let errorStyle = { color: 'rgb(255,0,0)' }
-	let errorBorderStyle = { border: 'solid 1px rgb(255,0,0)' }
+	let errorBorderStyle = { border: 'solid 2px rgb(255,0,0)' }
 	let errorMessageDiv = <div style={errorStyle}> {error} </div>
 
 	return (
 		<div>
 			<Label labelName={labelName} required={required} />
-			<input
-				type={type}
-				placeholder={placeholder}
-				value={value}
-				name={name}
-				onChange={onChange}
-				style={error && errorBorderStyle}
-				{...props}
-			/>
+			<div className="text-input">
+				<input
+					type={type}
+					placeholder={placeholder}
+					value={value}
+					name={name}
+					onChange={onChange}
+					style={error && errorBorderStyle}
+					{...props}
+				/>
+			</div>
 			{children}
 			{error && errorMessageDiv}
 		</div>

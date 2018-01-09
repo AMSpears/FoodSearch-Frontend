@@ -81,6 +81,7 @@ class LogInForm extends Component {
 			<Section>
 				<div>
 					<div className="form-style">
+						<h2> Sign In </h2>
 						<TextInput
 							htmlId="login-form-email"
 							labelName="Email"
@@ -97,13 +98,20 @@ class LogInForm extends Component {
 							error={errors.password}
 							onChange={this.onChange}
 						/>
-						<input type="submit" value="Login" onClick={this.onSubmit} />
-						<Link
-							to="/signup"
-							style={Object.assign({ fontSize: '16px', fontWeight: 'bold' })}
-						>
-							Sign Up
-						</Link>
+						<input type="submit" value="Sign In" onClick={this.onSubmit} />
+						<div className="login-msg">
+							<p>Don't have an account?</p>
+							<Link
+								to="/signup"
+								style={Object.assign({
+									fontSize: '16px',
+									fontWeight: 'bold',
+									textDecoration: 'underline'
+								})}
+							>
+								Sign Up Here
+							</Link>
+						</div>
 					</div>
 				</div>
 			</Section>

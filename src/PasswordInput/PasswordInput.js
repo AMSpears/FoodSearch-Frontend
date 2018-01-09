@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 import TextInput from '../TextInput/TextInput'
-
+import './PasswordInput.css'
 class PasswordInput extends Component {
 	constructor(props) {
 		super(props)
@@ -28,12 +28,6 @@ class PasswordInput extends Component {
 
 		const inputType = this.state.showPassword ? 'text' : 'password'
 
-		const toggleShowStyle = {
-			marginLeft: 5,
-			textDecoration: 'none',
-			display: 'inline'
-		}
-
 		return (
 			<TextInput
 				type={inputType}
@@ -47,9 +41,7 @@ class PasswordInput extends Component {
 				onChange={onChange}
 				{...props}
 			>
-				<p onClick={this.toggleShowPassword} style={toggleShowStyle}>
-					Show Password
-				</p>
+				<p onClick={this.toggleShowPassword}>Show Password</p>
 			</TextInput>
 		)
 	}
