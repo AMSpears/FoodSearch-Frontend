@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 import axios from 'axios'
-
+import { Link } from 'react-router-dom'
 import TextInput from '../TextInput/TextInput'
 import PasswordInput from '../PasswordInput/PasswordInput'
 import backend from '../BackendVariable'
@@ -89,6 +89,8 @@ class SignUpForm extends Component {
 		return (
 			<Section>
 				<div className="form-style">
+					<h2>Sign Up </h2>
+
 					<TextInput
 						htmlId="signup-form-email"
 						labelName="Email"
@@ -97,6 +99,7 @@ class SignUpForm extends Component {
 						error={errors.email}
 						onChange={this.onChange}
 					/>
+
 					<PasswordInput
 						htmlId="signup-form-password"
 						name="password"
@@ -116,6 +119,19 @@ class SignUpForm extends Component {
 						labelName="Confirm Password"
 					/>
 					<input type="submit" value="Sign Up" onClick={this.onSubmit} />
+					<div className="login-msg">
+						<p>Already have an account?</p>
+						<Link
+							to="/login"
+							style={Object.assign({
+								fontSize: '16px',
+								fontWeight: 'bold',
+								textDecoration: 'underline'
+							})}
+						>
+							Sign In Here
+						</Link>
+					</div>
 				</div>
 			</Section>
 		)

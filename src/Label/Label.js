@@ -1,5 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
+import './Label.css'
 
 const Label = ({ labelName, required }) => {
 	let requiredStyle = { color: 'rgb(255,0,0)' }
