@@ -122,7 +122,7 @@ class SignUpForm extends Component {
 					<div className="login-msg">
 						<p>Already have an account?</p>
 						<Link
-							to="/login"
+							to="/signin"
 							style={Object.assign({
 								fontSize: '16px',
 								fontWeight: 'bold',

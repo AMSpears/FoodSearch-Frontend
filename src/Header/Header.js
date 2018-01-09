@@ -19,18 +19,22 @@ const Header = ({ ...props }) => {
 				</Link>
 
 				{localStorage.token && localStorage.token.length > 10 ? (
-					<Link to="/logout" onClick={props.onViewChange}>
-						Log Out
+					<Link to="/signout" onClick={props.onViewChange}>
+						Sign Out
 					</Link>
 				) : (
-					<Link to="/Login" onClick={props.onViewChange}>
-						Log In
-					</Link>
+					(
+						<Link to="/signin" onClick={props.onViewChange}>
+							Sign In
+						</Link>
+					) && (
+						<Link to="/signup" onClick={props.onViewChange}>
+							Sign Up
+						</Link>
+					)
 				)}
-				<Link to="/signup" onClick={props.onViewChange}>
-					Sign Up
-				</Link>
 			</div>
+			
 			{props.alertOn ? <Alert msg={props.msg} /> : <p />}
 		</div>
 	)
