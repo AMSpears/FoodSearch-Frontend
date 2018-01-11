@@ -1,6 +1,7 @@
 import React from 'react'
-import PropTypes from 'prop-types'
+
 import { Link } from 'react-router-dom'
+
 import Alert from '../Alert/Alert'
 import './Header.css'
 
@@ -12,10 +13,10 @@ const Header = ({ ...props }) => {
 			</div>
 			<div className="nav_links">
 				<Link to="/" onClick={props.onViewChange}>
-					Restaurants
+					Home
 				</Link>
-				<Link to="/" onClick={props.onViewChange}>
-					Saved Restaurants
+				<Link to="/new-restaurant" onClick={props.onViewChange}>
+					Add Restaurant
 				</Link>
 
 				{localStorage.token && localStorage.token.length > 10 ? (

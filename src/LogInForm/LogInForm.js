@@ -52,7 +52,7 @@ class LogInForm extends Component {
 			this.setState({ submitted: true })
 		}
 		axios
-			.post(`${backend}api/login`, {
+			.post(`${backend}api/signin`, {
 				email: this.state.user.email,
 				password: this.state.user.password
 			})
@@ -98,6 +98,7 @@ class LogInForm extends Component {
 							error={errors.password}
 							onChange={this.onChange}
 						/>
+						
 						<input type="submit" value="Sign In" onClick={this.onSubmit} />
 						<div className="login-msg">
 							<p>Don't have an account?</p>
