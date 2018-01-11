@@ -83,8 +83,8 @@ class SignUpForm extends Component {
 	}
 
 	render() {
-		const { errors, submitted } = this.state
-		const { email, password, confirmPassword } = this.state.user
+		const { errors } = this.state
+		const { password } = this.state.user
 
 		return (
 			<Section>
