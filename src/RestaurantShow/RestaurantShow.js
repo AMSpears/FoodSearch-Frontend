@@ -43,11 +43,11 @@ class RestaurantShow extends Component {
 					<div>
 						<div className="restaurant-show">
 							<div className="image">
-								<img src={this.state.restaurant.image_url} alt="Restaurant" />
+								<img src={this.restaurant.image_url} alt="Restaurant" />
 							</div>
-							<h1>{this.state.restaurant.name}</h1>
-							<h3>{this.state.restaurant.location}</h3>
-							{this.props.userId === this.state.restaurant.owner_id ? (
+							<h1>{this.restaurant.name}</h1>
+							<h3>{this.restaurant.location.city}</h3>
+							{this.props.restaurant === this.state.restaurant.owner_id ? (
 								<div className="button">
 									<Link to={`/restaurants/${this.state.restaurant._id}/edit`}>
 										Edit

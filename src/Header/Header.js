@@ -13,14 +13,14 @@ const Header = ({ ...props }) => {
 			</Link>
 			<div className="navs_links">
 				<Link to="/" onClick={props.onViewChange}>
-					Home
+					Saved Restaurants
 				</Link>
 				<Link to="/search" onClick={props.onViewChange}>
 					New Search
 				</Link>
-				<Link to="/new-restaurant" onClick={props.onViewChange}>
+				{/* <Link to="/new-restaurant" onClick={props.onViewChange}>
 					Add Restaurant
-				</Link>
+				</Link> */}
 
 				{localStorage.token && localStorage.token.length > 10 ? (
 					<Link to="/signout" onClick={props.onViewChange}>

@@ -13,8 +13,8 @@ import LogOut from '../LogOut/LogOut'
 import SignUpForm from '../SignUpForm/SignUpForm'
 import RestaurantList from '../RestaurantList/RestaurantList'
 import RestaurantShow from '../RestaurantShow/RestaurantShow'
-import NewRestaurantForm from '../NewRestaurantForm/NewRestaurantForm'
-import EditRestaurantForm from '../EditRestaurantForm/EditRestaurantForm'
+// import NewRestaurantForm from '../NewRestaurantForm/NewRestaurantForm'
+// import EditRestaurantForm from '../EditRestaurantForm/EditRestaurantForm'
 import Section from '../Section/Section'
 import YelpRestaurantList from '../YelpRestaurantList/YelpRestaurantList'
 import UnfavoriteRestaurant from '../UnfavoriteRestaurant'
@@ -105,7 +105,6 @@ class App extends Component {
 									return (
 										<YelpRestaurantList
 											retrieveRestaurants={this.retrieveRestaurants}
-											onSubmit={() => console.log('Submitted!')}
 											msg={this.state.msg}
 											alertOn={this.state.alertOn}
 											alertToggle={this.alertToggle}
@@ -115,22 +114,22 @@ class App extends Component {
 									)
 								}}
 							/>
-							<Route
+							{/* <Route
 								path="/new-restaurant"
 								render={props => {
 									return (
-										<NewRestaurantForm
-											retrieveRestaurants={this.retrieveRestaurants}
-											onSubmit={() => console.log('Submitted!')}
-											msg={this.state.msg}
-											alertOn={this.state.alertOn}
-											alertToggle={this.alertToggle}
-											setMessage={this.setMessage}
-											{...props}
-										/>
+								<NewRestaurantForm
+								retrieveRestaurants={this.retrieveRestaurants}
+								onSubmit={() => console.log('Submitted!')}
+								msg={this.state.msg}
+								alertOn={this.state.alertOn}
+								alertToggle={this.alertToggle}
+								setMessage={this.setMessage}
+								{...props}
+								/>
 									)
 								}}
-							/>
+							/> */}
 							<Route
 								exact
 								path="/restaurants"
@@ -166,24 +165,24 @@ class App extends Component {
 									)
 								}}
 							/>
-							<Route
+							{/* <Route
 								path="/restaurants/:id/edit"
 								render={props => {
 									return (
-										<EditRestaurantForm
-											retrieveRestaurants={this.retrieveRestaurants}
-											userId={this.state.userId}
-											restaurants={this.state.restaurants}
-											onSubmit={() => console.log('Submitted!')}
-											msg={this.state.msg}
-											alertOn={this.state.alertOn}
-											alertToggle={this.alertToggle}
-											setMessage={this.setMessage}
-											{...props}
-										/>
+								<EditRestaurantForm
+								retrieveRestaurants={this.retrieveRestaurants}
+								userId={this.state.userId}
+								restaurants={this.state.restaurants}
+								onSubmit={() => console.log('Submitted!')}
+								msg={this.state.msg}
+								alertOn={this.state.alertOn}
+								alertToggle={this.alertToggle}
+								setMessage={this.setMessage}
+								{...props}
+								/>
 									)
 								}}
-							/>
+							/> */}
 							<Route
 								path="/restaurants/:id"
 								render={props => {
@@ -243,7 +242,7 @@ class App extends Component {
 								alertToggle={this.alertToggle}
 								setMessage={this.setMessage}
 							/>
-							
+
 							<Route
 								path="/*"
 								render={props => {

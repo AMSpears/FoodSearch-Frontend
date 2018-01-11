@@ -83,7 +83,7 @@ class EditRestaurantForm extends Component {
 		let restaurant = this.props.restaurants.find(
 			restaurant => restaurant._id === this.props.match.params._id
 		)
-		if (!restaurant) {
+		if (!this.state.restaurant) {
 			return (
 				<Section>
 					<div>
@@ -99,7 +99,7 @@ class EditRestaurantForm extends Component {
 						<TextInput
 							labelName=" Type of Food"
 							name="name"
-							defaultValue={restaurant.name}
+							// defaultValue={restaurant.name}
 							required
 							placeholder="Type of Food"
 							onChange={this.onChange}
@@ -108,13 +108,13 @@ class EditRestaurantForm extends Component {
 						<TextInput
 							labelName="image_url"
 							name="image_url"
-							defaultValue={restaurant.image_url}
+							// defaultValue={restaurant.image_url}
 							onChange={this.onChange}
 						/>
 						<TextInput
 							labelName="City"
 							name="location"
-							defaultValue={restaurant.location}
+							// defaultValue={restaurant.location}
 							required
 							onChange={this.onChange}
 						/>

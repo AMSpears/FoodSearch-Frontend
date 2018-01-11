@@ -8,9 +8,9 @@ class RestaurantSummary extends Component {
 		return (
 			<Section>
 				<div className="restaurant-summary">
-					{/* <div className="favorite-button"> */}
-					<i className="fa fa-heart-o" aria-hidden="true" />
-					{/* </div> */}
+					<div className="favorite-button">
+						<i className="fa fa-heart-o" aria-hidden="true" />
+					</div>
 					<Link
 						className="content-link"
 						to={`/restaurants/${this.props.restaurant._id}`}
