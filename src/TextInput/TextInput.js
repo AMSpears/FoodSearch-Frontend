@@ -40,7 +40,7 @@ const TextInput = ({
 	)
 }
 TextInput.propTypes = {
-	labelName: PropTypes.string.isRequired,
+	labelName: PropTypes.string,
 	name: PropTypes.string.isRequired,
 	type: PropTypes.oneOf(['text', 'number', 'password']),
 	required: PropTypes.bool,

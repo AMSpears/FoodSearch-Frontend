@@ -1,0 +1,34 @@
+.restaurant-summary {
+	border: 1px solid black;
+	display: flex;
+	flex-direction: row;
+}
+.restaurant-summary_description {
+	display: flex;
+	flex-direction: column;
+}
+.restaurant-summary_details {
+	display: flex;
+	flex-direction: column;
+	padding: 0px;
+}
+.favorite-button {
+	color: red;
+	padding-left: 10px;
+	font-size: 20px;
+}
+
+img {
+	margin: 15px;
+	width: 200px;
+	height: 200px;
+	object-fit: cover;
+}
+img,
+h3,
+h4 {
+	display: flex;
+	flex-direction: row;
+	justify-content: flex-start;
+	flex-wrap: wrap;
+}

@@ -13,7 +13,7 @@ class EditRestaurantForm extends Component {
 
 		this.state = {
 			restaurant: {
-				food: '',
+				name: '',
 				image_url: '',
 				location: ''
 			},
@@ -40,7 +40,7 @@ class EditRestaurantForm extends Component {
 			})
 	}
 
-	validate({ food, image_url, location }) {
+	validate({ name, image_url, location }) {
 		const errors = {}
 
 		this.setState({ errors })
@@ -59,7 +59,7 @@ class EditRestaurantForm extends Component {
 			url: `${backend}api/restaurants/${this.props.match.params.id}`,
 			headers: { token: localStorage.token },
 			data: {
-				food: this.state.restaurant.food,
+				name: this.state.restaurant.name,
 				image_url: this.state.restaurant.image_url,
 				location: this.state.restaurant.location
 			}
@@ -80,15 +80,15 @@ class EditRestaurantForm extends Component {
 	}
 
 	render() {
-		const { errors, submitted } = this.state
-
 		let restaurant = this.props.restaurants.find(
 			restaurant => restaurant._id === this.props.match.params._id
 		)
 		if (!restaurant) {
 			return (
 				<Section>
-					<p>Loading...</p>
+					<div>
+						<p>Loading...</p>
+					</div>
 				</Section>
 			)
 		} else {
@@ -96,28 +96,30 @@ class EditRestaurantForm extends Component {
 				<Section>
 					<div className="form-style">
 						<h2> Edit </h2>
-						<div className="form-style">
-							<TextInput
-								labelName=" Type of Food"
-								name="food"
-								placeholder="Type of Food"
-								onChange={this.onChange}
-							/>
-							<TextInput
-								labelName="image_url"
-								name="image_url"
-								onChange={this.onChange}
-							/>
-							<TextInput
-								labelName="City"
-								name="location"
-								required
-								error={errors.location}
-								onChange={this.onChange}
-							/>
+						<TextInput
+							labelName=" Type of Food"
+							name="name"
+							defaultValue={restaurant.name}
+							required
+							placeholder="Type of Food"
+							onChange={this.onChange}
+							ref="name"
+						/>
+						<TextInput
+							labelName="image_url"
+							name="image_url"
+							defaultValue={restaurant.image_url}
+							onChange={this.onChange}
+						/>
+						<TextInput
+							labelName="City"
+							name="location"
+							defaultValue={restaurant.location}
+							required
+							onChange={this.onChange}
+						/>
 
-							<input type="submit" value="Saved" onClick={this.onSubmit} />
-						</div>
+						<input type="submit" value="Saved" onClick={this.onSubmit} />
 					</div>
 				</Section>
 			)

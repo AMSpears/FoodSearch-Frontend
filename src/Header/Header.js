@@ -15,11 +15,14 @@ const Header = ({ ...props }) => {
 				<Link to="/" onClick={props.onViewChange}>
 					Home
 				</Link>
+				<Link to="/search" onClick={props.onViewChange}>
+					New Search
+				</Link>
 				<Link to="/new-restaurant" onClick={props.onViewChange}>
 					Add Restaurant
 				</Link>
-				
-				{localStorage.token && localStorage.token.length > 0 ? (
+
+				{localStorage.token && localStorage.token.length > 10 ? (
 					<Link to="/signout" onClick={props.onViewChange}>
 						SingOut
 					</Link>

@@ -12,7 +12,7 @@ class RestaurantShow extends Component {
 			restaurant: {
 				id: '',
 				owner_id: '',
-				food: '',
+				name: '',
 				image_url: '',
 				location: ''
 			},
@@ -37,24 +37,28 @@ class RestaurantShow extends Component {
 	}
 
 	render() {
-		if (this.state.restaurant._id) {
+		if (this.state.restaurant) {
 			return (
 				<Section>
 					<div>
 						<div className="restaurant-show">
 							<div className="image">
-								<h1>{this.state.restaurant.image_url}</h1>
+								<img src={this.state.restaurant.image_url} alt="Restaurant" />
 							</div>
-							<h1>{this.state.restaurant.food}</h1>
+							<h1>{this.state.restaurant.name}</h1>
 							<h3>{this.state.restaurant.location}</h3>
-							<div className="button">
-								<Link to={`/restaurants/${this.state.restaurant._id}/edit`}>
-									Edit
-								</Link>
-								<Link to={`/restaurants/${this.state.restaurant._id}/delete`}>
-									Delete
-								</Link>
-							</div>
+							{this.props.userId === this.state.restaurant.owner_id ? (
+								<div className="button">
+									<Link to={`/restaurants/${this.state.restaurant._id}/edit`}>
+										Edit
+									</Link>
+									<Link to={`/restaurants/${this.state.restaurant._id}/delete`}>
+										Delete
+									</Link>
+								</div>
+							) : (
+								<p />
+							)}
 						</div>
 					</div>
 				</Section>

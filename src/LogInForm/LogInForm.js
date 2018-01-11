@@ -74,8 +74,8 @@ class LogInForm extends Component {
 	}
 
 	render() {
-		const { errors, submitted } = this.state
-		const { email, password } = this.state.user
+		const { errors } = this.state
+		// const { email, password } = this.state.user
 
 		return (
 			<Section>
@@ -98,7 +98,7 @@ class LogInForm extends Component {
 							error={errors.password}
 							onChange={this.onChange}
 						/>
-						
+
 						<input type="submit" value="Sign In" onClick={this.onSubmit} />
 						<div className="login-msg">
 							<p>Don't have an account?</p>

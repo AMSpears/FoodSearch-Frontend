@@ -13,7 +13,7 @@ class NewRestaurantForm extends Component {
 
 		this.state = {
 			restaurant: {
-				food: '',
+				name: '',
 				image_url: '',
 				location: ''
 			},
@@ -28,8 +28,10 @@ class NewRestaurantForm extends Component {
 		restaurant[event.target.name] = event.target.value
 		this.setState({ restaurant })
 	}
-	validate({}) {
+	validate({ name, image_url, location }) {
 		const errors = {}
+		if (!name) errors.name = 'Restaurant name required.'
+		if (!location) errors.location = 'Location required.'
 
 		this.setState({ errors })
 		const formIsValid = Object.getOwnPropertyNames(errors).length === 0
@@ -47,7 +49,7 @@ class NewRestaurantForm extends Component {
 				url: `${backend}api/restaurants/`,
 				headers: { token: localStorage.token },
 				data: {
-					food: this.state.restaurant.food,
+					name: this.state.restaurant.name,
 					image_url: this.state.restaurant.image_url,
 					location: this.state.restaurant.location
 				}
@@ -69,7 +71,7 @@ class NewRestaurantForm extends Component {
 	}
 	render() {
 		const { errors, submitted } = this.state
-		const { food, image_url, location } = this.state.restaurant
+		const { name, location } = this.state.restaurant
 		let formDisplay = null
 		if (localStorage.token && localStorage.token.length > 10) {
 			if (submitted) {
@@ -80,7 +82,9 @@ class NewRestaurantForm extends Component {
 						<div className="form-style">
 							<TextInput
 								labelName=" Type of Food"
-								name="food"
+								name="name"
+								required
+								error={errors.name}
 								placeholder="Type of Food"
 								onChange={this.onChange}
 							/>
