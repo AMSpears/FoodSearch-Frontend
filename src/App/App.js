@@ -1,12 +1,5 @@
 import React, { Component } from 'react'
-import Header from '../Header/Header'
-import LogInForm from '../LogInForm/LogInForm'
-import LogOut from '../LogOut/LogOut'
-import SignUpForm from '../SignUpForm/SignUpForm'
-import RestaurantList from '../RestaurantList/RestaurantList'
-// import RestaurantSummary from '../RestaurantSummary/RestaurantSummary'
-import Section from '../Section/Section'
-// import UnfavoriteRestaurant from '../UnfavoriteRestaurant'
+
 import axios from 'axios'
 import {
 	BrowserRouter as Router,
@@ -14,6 +7,18 @@ import {
 	Redirect,
 	Switch
 } from 'react-router-dom'
+import Header from '../Header/Header'
+import LogInForm from '../LogInForm/LogInForm'
+import LogOut from '../LogOut/LogOut'
+import SignUpForm from '../SignUpForm/SignUpForm'
+import RestaurantList from '../RestaurantList/RestaurantList'
+import RestaurantShow from '../RestaurantShow/RestaurantShow'
+import NewRestaurantForm from '../NewRestaurantForm/NewRestaurantForm'
+import EditRestaurantForm from '../EditRestaurantForm/EditRestaurantForm'
+import Section from '../Section/Section'
+import YelpRestaurantList from '../YelpRestaurantList/YelpRestaurantList'
+import UnfavoriteRestaurant from '../UnfavoriteRestaurant'
+
 import backend from '../BackendVariable'
 import './App.css'
 
@@ -95,6 +100,38 @@ class App extends Component {
 					<main>
 						<Switch>
 							<Route
+								path="/search"
+								render={props => {
+									return (
+										<YelpRestaurantList
+											retrieveRestaurants={this.retrieveRestaurants}
+											onSubmit={() => console.log('Submitted!')}
+											msg={this.state.msg}
+											alertOn={this.state.alertOn}
+											alertToggle={this.alertToggle}
+											setMessage={this.setMessage}
+											{...props}
+										/>
+									)
+								}}
+							/>
+							<Route
+								path="/new-restaurant"
+								render={props => {
+									return (
+										<NewRestaurantForm
+											retrieveRestaurants={this.retrieveRestaurants}
+											onSubmit={() => console.log('Submitted!')}
+											msg={this.state.msg}
+											alertOn={this.state.alertOn}
+											alertToggle={this.alertToggle}
+											setMessage={this.setMessage}
+											{...props}
+										/>
+									)
+								}}
+							/>
+							<Route
 								exact
 								path="/restaurants"
 								render={props => {
@@ -107,6 +144,57 @@ class App extends Component {
 											alertToggle={this.alertToggle}
 											setMessage={this.setMessage}
 											onViewChange={this.onViewChange}
+											{...props}
+										/>
+									)
+								}}
+							/>
+							<Route
+								path="/restaurants/:id/delete"
+								render={props => {
+									return (
+										<UnfavoriteRestaurant
+											userId={this.state.userId}
+											restaurants={this.state.restaurants}
+											retrieveRestaurants={this.retrieveRestaurants}
+											msg={this.state.msg}
+											alertOn={this.state.alertOn}
+											alertToggle={this.alertToggle}
+											setMessage={this.setMessage}
+											{...props}
+										/>
+									)
+								}}
+							/>
+							<Route
+								path="/restaurants/:id/edit"
+								render={props => {
+									return (
+										<EditRestaurantForm
+											retrieveRestaurants={this.retrieveRestaurants}
+											userId={this.state.userId}
+											restaurants={this.state.restaurants}
+											onSubmit={() => console.log('Submitted!')}
+											msg={this.state.msg}
+											alertOn={this.state.alertOn}
+											alertToggle={this.alertToggle}
+											setMessage={this.setMessage}
+											{...props}
+										/>
+									)
+								}}
+							/>
+							<Route
+								path="/restaurants/:id"
+								render={props => {
+									return (
+										<RestaurantShow
+											userId={this.state.userId}
+											restaurants={this.state.restaurants}
+											msg={this.state.msg}
+											alertOn={this.state.alertOn}
+											alertToggle={this.alertToggle}
+											setMessage={this.setMessage}
 											{...props}
 										/>
 									)
@@ -146,7 +234,7 @@ class App extends Component {
 							/>
 
 							<Route
-								path="/logout"
+								path="/signout"
 								render={props => {
 									return <Section children={<LogOut {...props} />} />
 								}}
@@ -155,6 +243,7 @@ class App extends Component {
 								alertToggle={this.alertToggle}
 								setMessage={this.setMessage}
 							/>
+							
 							<Route
 								path="/*"
 								render={props => {

@@ -1,35 +1,36 @@
 import React from 'react'
-import PropTypes from 'prop-types'
+
 import { Link } from 'react-router-dom'
+
 import Alert from '../Alert/Alert'
 import './Header.css'
 
 const Header = ({ ...props }) => {
 	return (
 		<div className="navs">
-			<div className="logo">
-				<Link to="/"> Logo</Link>
-			</div>
-			<div className="nav_links">
+			<Link to="/">
+				<h1>logo</h1>
+			</Link>
+			<div className="navs_links">
 				<Link to="/" onClick={props.onViewChange}>
-					Restaurants
+					Home
 				</Link>
-				<Link to="/" onClick={props.onViewChange}>
-					Saved Restaurants
+				<Link to="/search" onClick={props.onViewChange}>
+					New Search
+				</Link>
+				<Link to="/new-restaurant" onClick={props.onViewChange}>
+					Add Restaurant
 				</Link>
 
 				{localStorage.token && localStorage.token.length > 10 ? (
 					<Link to="/signout" onClick={props.onViewChange}>
-						Sign Out
+						SingOut
 					</Link>
 				) : (
 					<Link to="/signin" onClick={props.onViewChange}>
-						Sign In
-					</Link>()
+						SignIn
+					</Link>
 				)}
-				<Link to="/signup" onClick={props.onViewChange}>
-					Sign Up
-				</Link>
 			</div>
 
 			{props.alertOn ? <Alert msg={props.msg} /> : <p />}

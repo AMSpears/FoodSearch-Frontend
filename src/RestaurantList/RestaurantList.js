@@ -1,19 +1,30 @@
 import React, { Component } from 'react'
-// import PropTypes from 'prop-types'
-
+import RestaurantSummary from '../RestaurantSummary/RestaurantSummary'
 import './RestaurantList.css'
-// import Section from '../Section/Section'
-// import Alert from '../Alert/Alert'
+import Section from '../Section/Section'
 
 class RestaurantList extends Component {
-	// constructor(props) {
-	// 	super(props)
-	// }
 	render() {
+		let restaurants = this.props.restaurants.map((restaurant, i) => {
+			return (
+				<div className="restaurant-list" key={i}>
+					<p className="restaurant" key={i}>
+						{
+							<RestaurantSummary
+								restaurant={restaurant}
+								onClick={this.props.onViewChange}
+							/>
+						}
+					</p>
+				</div>
+			)
+		})
 		return (
-			<div>
-				<h1>Restaurants list </h1>
-			</div>
+			<Section>
+				<div>
+					<p>{restaurants}</p>
+				</div>
+			</Section>
 		)
 	}
 }
