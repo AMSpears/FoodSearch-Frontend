@@ -18,7 +18,8 @@ class EditRestaurantForm extends Component {
 				location: ''
 			},
 			errors: {},
-			submitted: false
+			submitted: false,
+			restaurantId: ''
 		}
 		this.onChange = this.onChange.bind(this)
 		this.onSubmit = this.onSubmit.bind(this)
@@ -82,7 +83,7 @@ class EditRestaurantForm extends Component {
 		const { errors, submitted } = this.state
 
 		let restaurant = this.props.restaurants.find(
-			restaurant => restaurant._id === this.props.match.params.id
+			restaurant => restaurant._id === this.props.match.params._id
 		)
 		if (!restaurant) {
 			return (

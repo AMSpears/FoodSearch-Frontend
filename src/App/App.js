@@ -217,7 +217,7 @@ class App extends Component {
 							/>
 
 							<Route
-								path="/logout"
+								path="/signout"
 								render={props => {
 									return <Section children={<LogOut {...props} />} />
 								}}

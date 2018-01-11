@@ -18,8 +18,7 @@ class RestaurantShow extends Component {
 			},
 			errors: {},
 			submitted: false,
-			restaurantId: '',
-			center: {}
+			restaurantId: ''
 		}
 		this.getRestaurant = this.getRestaurant.bind(this)
 	}
@@ -38,7 +37,7 @@ class RestaurantShow extends Component {
 	}
 
 	render() {
-		if (this.state.restaurant) {
+		if (this.state.restaurant._id) {
 			return (
 				<Section>
 					<div>
@@ -48,18 +47,14 @@ class RestaurantShow extends Component {
 							</div>
 							<h1>{this.state.restaurant.food}</h1>
 							<h3>{this.state.restaurant.location}</h3>
-							{this.props.userId === this.state.restaurant._id ? (
-								<div className="button">
-									<Link to={`/restaurants/${this.state.restaurant._id}/edit`}>
-										Edit
-									</Link>
-									<Link to={`/restaurants/${this.state.restaurant._id}/delete`}>
-										Delete
-									</Link>
-								</div>
-							) : (
-								<p />
-							)}
+							<div className="button">
+								<Link to={`/restaurants/${this.state.restaurant._id}/edit`}>
+									Edit
+								</Link>
+								<Link to={`/restaurants/${this.state.restaurant._id}/delete`}>
+									Delete
+								</Link>
+							</div>
 						</div>
 					</div>
 				</Section>
@@ -67,10 +62,11 @@ class RestaurantShow extends Component {
 		} else {
 			return (
 				<Section>
-					<p>Loading...</p>
+					<p>Only User can access information</p>
 				</Section>
 			)
 		}
 	}
 }
+
 export default RestaurantShow
