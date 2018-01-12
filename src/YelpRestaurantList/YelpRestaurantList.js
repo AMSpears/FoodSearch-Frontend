@@ -79,7 +79,7 @@ class YelpRestaurantList extends Component {
 						<div className="restaurants-list" key={i}>
 							<div>
 								<img src={restaurant.image_url} alt="Restaurant" />
-								<a href={restaurant.url}>
+								<a href={restaurant.url} target="_blank">
 									<h1>{restaurant.name}</h1>
 								</a>
 								<h2>
