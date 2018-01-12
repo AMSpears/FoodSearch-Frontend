@@ -99,8 +99,6 @@ class YelpRestaurantList extends Component {
 
 		return (
 			<div>
-				<h1> Food Search </h1>
-
 				<form className="form-style" onSubmit={this.onSubmit}>
 					<div className="search">
 						<h2>Search Restaurants:</h2>

@@ -1,8 +1,19 @@
-.navs .logo {
-	width: 200px;
+.logo {
+	width: 300px;
 	display: flex;
 	flex-direction: column;
-	padding-left: 46%;
+	justify-content: center;
+	padding-left: 45%;
 	text-decoration: none;
 	align-items: center;
+}
+
+.navs h2 {
+	padding-left: 46%;
+	font-size: 50px;
+	font-weight: 700;
+	font-size: 35px;
+	font-family: 'Arvo', serif;
+	color: #2e112d;
+	text-decoration: none;
 }
