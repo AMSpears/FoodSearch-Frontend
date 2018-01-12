@@ -1,5 +1,7 @@
 # Food Search
 
+![picture](./src/Img/FS-logo.png)
+
 ## Description
 
 The purpose of this application is to allow the user to browse for restaurants with the type of food they desire and most convenient location.
