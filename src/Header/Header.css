@@ -1,16 +1,15 @@
-.logo {
-	width: 300px;
+.navs {
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
-	padding-left: 45%;
-	text-decoration: none;
 	align-items: center;
 }
+.logo {
+	width: 300px;
+	text-decoration: none;
+}
 
-.navs h2 {
-	padding-left: 46%;
-	font-size: 50px;
+.tittle h1 {
 	font-weight: 700;
 	font-size: 35px;
 	font-family: 'Arvo', serif;

@@ -68,27 +68,17 @@ class YelpRestaurantList extends Component {
 		if (this.state.yelpResults.length > 0) {
 			restaurants = this.state.yelpResults.map((restaurant, i) => {
 				return (
-					<div>
-						<div
-							name={i}
-							onClick={e => {
-								this.handleFavorite(e)
-							}}
-						/>
-
-						<div className="restaurants-list" key={i}>
-							<div>
-								<img src={restaurant.image_url} alt="Restaurant" />
-								<a href={restaurant.url} target="_blank">
-									<h1>{restaurant.name}</h1>
-								</a>
-								<h2>
-									{restaurant.location.city}, {restaurant.location.state}
-								</h2>
-								<br />
-								<h3 />
-								<hr />
-							</div>
+					<div className="restaurant" key={i}>
+						<div>
+							<img src={restaurant.image_url} alt="Restaurant" />
+							<a href={restaurant.url} target="_blank">
+								<h1>{restaurant.name}</h1>
+							</a>
+							<h2>
+								{restaurant.location.city}, {restaurant.location.state}
+							</h2>
+							<br />
+							<h3 />
 						</div>
 					</div>
 				)
@@ -122,7 +112,7 @@ class YelpRestaurantList extends Component {
 					</button>
 				</form>
 				<div>
-					<h4> {restaurants}</h4>
+					<div className="restaurant-list"> {restaurants}</div>
 				</div>
 			</div>
 		)
