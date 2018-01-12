@@ -1,39 +1,15 @@
 import React from 'react'
 
 import { Link } from 'react-router-dom'
-
-import Alert from '../Alert/Alert'
+import Img from '../Img/FS-logo.png'
 import './Header.css'
 
 const Header = ({ ...props }) => {
 	return (
 		<div className="navs">
 			<Link to="/">
-				<h1>logo</h1>
+				<img className="logo" src={Img} alt="logo" />
 			</Link>
-			<div className="navs_links">
-				<Link to="/" onClick={props.onViewChange}>
-					Saved Restaurants
-				</Link>
-				<Link to="/search" onClick={props.onViewChange}>
-					New Search
-				</Link>
-				{/* <Link to="/new-restaurant" onClick={props.onViewChange}>
-					Add Restaurant
-				</Link> */}
-
-				{localStorage.token && localStorage.token.length > 10 ? (
-					<Link to="/signout" onClick={props.onViewChange}>
-						SingOut
-					</Link>
-				) : (
-					<Link to="/signin" onClick={props.onViewChange}>
-						SignIn
-					</Link>
-				)}
-			</div>
-
-			{props.alertOn ? <Alert msg={props.msg} /> : <p />}
 		</div>
 	)
 }

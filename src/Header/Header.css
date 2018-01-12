@@ -1,16 +1,7 @@
-.navs,
-.navs__links {
+.navs .logo {
+	width: 200px;
 	display: flex;
-	flex-direction: row;
-	justify-content: flex-start;
-	align-self: center;
-	font-size: 30px;
-}
-link,
-a {
-	padding: 0 20px;
-	border-width: thick;
+	flex-direction: column;
+	padding-left: 44%;
 	text-decoration: none;
-	color: black;
-	font-size: 25px;
 }

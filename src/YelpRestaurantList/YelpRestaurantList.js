@@ -1,10 +1,8 @@
 import React, { Component } from 'react'
 import axios from 'axios'
-import $ from 'jquery'
-
-import TextInput from '../TextInput/TextInput'
-import Section from '../Section/Section'
+import Img from '../Img/background_picture.png'
 import backend from '../BackendVariable'
+import './YelpRestaurantList.css'
 
 class YelpRestaurantList extends Component {
 	constructor(props) {
@@ -35,22 +33,6 @@ class YelpRestaurantList extends Component {
 		})
 	}
 
-	// onChange(event) {
-	// 	console.log(event.target.value)
-	// 	this.setState(
-	// 		{
-	// 			// name: event.target.value,
-	// 			// image_url: event.target.value,
-	// 			// location: event.target.value
-	// 			term: event.target.value,
-	// 			location: event.target.value
-	// 		},
-	// 		() => {
-	// 			console.log(this.state.term)
-	// 			console.log(this.state.location)
-	// 		}
-	// 	)
-	// }
 	componentDidMount() {
 		axios.get(`${backend}api/search/`).then(response => {
 			this.setState({
@@ -73,15 +55,7 @@ class YelpRestaurantList extends Component {
 				this.setState({
 					yelpResults: response.data
 				})
-				// let restaurantId = response.data._id
-				// this.props.retrieveRestaurants()
-				// return restaurantId
 			})
-			// .then(restaurantId => {
-			// 	this.props.setMessage('See results')
-			// 	this.props.alertToggle(true)
-			// 	this.props.history.push(`/restaurants/`)
-			// })
 			.catch(err => {
 				console.log(err)
 			})
@@ -89,57 +63,69 @@ class YelpRestaurantList extends Component {
 
 	render() {
 		console.log(this.state.yelpResults)
-		const { errors } = this.state
 		console.log(this.state.restaurant)
 		let restaurants
 		if (this.state.yelpResults.length > 0) {
 			restaurants = this.state.yelpResults.map((restaurant, i) => {
 				return (
-					<Section>
+					<div>
 						<div
 							name={i}
 							onClick={e => {
 								this.handleFavorite(e)
 							}}
-						>
-							<i className="fa fa-heart-o" aria-hidden="true" />
-						</div>
+						/>
+
 						<div className="restaurants-list" key={i}>
-							<h1>{restaurant.name}</h1>
-							<img src={restaurant.image_url} />
-							<h2> {restaurant.phone}</h2>
-							<h2>{restaurant.location.city}</h2>
+							<div>
+								<img src={restaurant.image_url} alt="Restaurant" />
+								<a href={restaurant.url}>
+									<h1>{restaurant.name}</h1>
+								</a>
+								<h2>
+									{restaurant.location.city}, {restaurant.location.state}
+								</h2>
+								<br />
+								<h3 />
+							</div>
 						</div>
-					</Section>
+					</div>
 				)
 			})
 		} else {
-			restaurants = 'not loaded yet'
+			restaurants = <img src={Img} alt="logo" />
 		}
 
 		return (
-			<Section>
-				<div>
-					<form className="form-style" onSubmit={this.onSubmit}>
-						<TextInput
-							htmlId="search-form"
-							name="term"
-							placeholder="Type of food"
-							onChange={this.onChange}
-						/>
-						<TextInput
-							htmlId="search-form"
-							name="location"
-							placeholder="located In"
-							onChange={this.onChange}
-						/>
-						<input type="submit" value="Show Results" />
-					</form>
-				</div>
+			<div>
+				<h1> Food Search </h1>
+
+				<form className="form-style" onSubmit={this.onSubmit}>
+					<div className="search">
+						<h2>Search Restaurants:</h2>
+					</div>
+					<input
+						name="term"
+						type="text"
+						placeholder="Type of Food"
+						onChange={this.onChange}
+					/>
+
+					<input
+						name="location"
+						type="text"
+						placeholder="Located In"
+						onChange={this.onChange}
+					/>
+
+					<button className="button" type="submit">
+						Show Results
+					</button>
+				</form>
 				<div>
 					<h4> {restaurants}</h4>
 				</div>
-			</Section>
+			</div>
 		)
 	}
 }
