@@ -93,20 +93,22 @@ class YelpRestaurantList extends Component {
 					<div className="search">
 						<h3>Search Restaurants:</h3>
 					</div>
-					<input
-						name="term"
-						type="text"
-						placeholder="Type of Food"
-						onChange={this.onChange}
-					/>
-
-					<input
-						name="location"
-						type="text"
-						placeholder="Located In"
-						onChange={this.onChange}
-					/>
-
+					<div className="term-input">
+						<input
+							name="term"
+							type="text"
+							placeholder="Type of Food"
+							onChange={this.onChange}
+						/>
+					</div>
+					<div className="location-input">
+						<input
+							name="location"
+							type="text"
+							placeholder="Located In"
+							onChange={this.onChange}
+						/>
+					</div>
 					<button className="button" type="submit">
 						Show Results
 					</button>

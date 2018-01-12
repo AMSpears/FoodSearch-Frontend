@@ -11,7 +11,7 @@ h1 {
 .search h3 {
 	display: flex;
 	justify-content: flex-start;
-	padding-left: 5%;
+	padding-left: 15%;
 	font-size: 30px;
 	font-weight: 300;
 	font-family: 'Roboto', sans-serif;
@@ -22,7 +22,7 @@ img {
 	width: 100%;
 }
 input {
-	width: 90%;
+	width: 70%;
 	border: 2px solid #333333;
 	padding: 30px 50px;
 	margin-left: 20px 0;
@@ -32,8 +32,6 @@ input[type='text'] {
 	font-size: 30px;
 	padding-left: 50px;
 	margin: 10px 20px;
-	/* margin: 4px 2px; */
-
 	box-sizing: border-box;
 }
 
