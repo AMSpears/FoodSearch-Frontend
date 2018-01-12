@@ -87,6 +87,7 @@ class YelpRestaurantList extends Component {
 								</h2>
 								<br />
 								<h3 />
+								<hr />
 							</div>
 						</div>
 					</div>

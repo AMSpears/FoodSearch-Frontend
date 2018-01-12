@@ -50,7 +50,6 @@ class App extends Component {
 							render={props => {
 								return (
 									<YelpRestaurantList
-										msg={this.state.msg}
 										alertOn={this.state.alertOn}
 										alertToggle={this.alertToggle}
 										{...props}
