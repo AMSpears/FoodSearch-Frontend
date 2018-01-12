@@ -2,6 +2,7 @@
 	width: 200px;
 	display: flex;
 	flex-direction: column;
-	padding-left: 44%;
+	padding-left: 46%;
 	text-decoration: none;
+	align-items: center;
 }
