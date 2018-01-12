@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom'
 import Img from '../Img/FS-logo.png'
 import './Header.css'
 
-const Header = ({ ...props }) => {
+const Header = () => {
 	return (
 		<div className="navs">
 			<Link to="/">
