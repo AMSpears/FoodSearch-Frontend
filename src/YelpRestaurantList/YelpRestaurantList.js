@@ -20,10 +20,6 @@ class YelpRestaurantList extends Component {
 		this.onChange = this.onChange.bind(this)
 		this.onSubmit = this.onSubmit.bind(this)
 	}
-
-	handleFavorite(e) {
-		console.log(e.currentTarget.name)
-	}
 	onChange(event) {
 		this.setState({
 			restaurant: {
@@ -43,7 +39,6 @@ class YelpRestaurantList extends Component {
 	}
 	onSubmit(event) {
 		event.preventDefault()
-		console.log(this.state.restaurant)
 		axios({
 			method: 'POST',
 			url: `${backend}api/search/`,
@@ -62,8 +57,6 @@ class YelpRestaurantList extends Component {
 	}
 
 	render() {
-		console.log(this.state.yelpResults)
-		console.log(this.state.restaurant)
 		let restaurants
 		if (this.state.yelpResults.length > 0) {
 			restaurants = this.state.yelpResults.map((restaurant, i) => {
