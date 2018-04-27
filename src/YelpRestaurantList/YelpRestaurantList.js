@@ -28,7 +28,7 @@ class YelpRestaurantList extends Component {
 			}
 		})
 	}
-
+	//request to retrieve data from the backend 
 	componentDidMount() {
 		axios.get(`${backend}api/search/`).then(response => {
 			this.setState({
@@ -78,8 +78,8 @@ class YelpRestaurantList extends Component {
 			})
 		} else {
 			restaurants = <img src={Img} alt="logo" />
-		}
-
+		} 
+		
 		return (
 			<div>
 				<form className="form-style" onSubmit={this.onSubmit}>
