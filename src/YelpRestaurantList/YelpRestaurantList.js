@@ -62,28 +62,25 @@ class YelpRestaurantList extends Component {
 			restaurants = this.state.yelpResults.map((restaurant, i) => {
 				return (
 					<div className="restaurant" key={i}>
-						<div>
-							<img src={restaurant.image_url} alt="Restaurant" />
-							<a href={restaurant.url} target="_blank">
-								<h1>{restaurant.name}</h1>
-							</a>
-							<h2>
-								{restaurant.location.city}, {restaurant.location.state}
-							</h2>
+						<div className= "restaurant-summary">
+							<img id= "restaurant-image" src={restaurant.image_url} alt="Restaurant" />
+								<a href={restaurant.url} target="_blank">
+									<h1 id= "restaurant-name">{restaurant.name}</h1>
+								</a>
+									<h2>{restaurant.location.city}, {restaurant.location.state} </h2>
 							<br />
-							<h3 />
 						</div>
 					</div>
 				)
 			})
 		} else {
-			restaurants = <img src={Img} alt="logo" />
+			restaurants = <img src={Img} alt="Before Search Picture" max-width= "100%" height= "auto" />
 		} 
 		
 		return (
 			<div>
 				<form className="form-style" onSubmit={this.onSubmit}>
-					<div className="search">
+					<div className="search-title">
 						<h3>Search Restaurants:</h3>
 					</div>
 					<div className="term-input">
@@ -102,12 +99,14 @@ class YelpRestaurantList extends Component {
 							onChange={this.onChange}
 						/>
 					</div>
-					<button className="button" type="submit">
+					<div className = "button">
+					<button type="submit">
 						Show Results
 					</button>
+					</div>
 				</form>
 				<div>
-					<div className="restaurant-list"> {restaurants}</div>
+					<div className= "restaurant-list"> {restaurants}</div>
 				</div>
 			</div>
 		)
