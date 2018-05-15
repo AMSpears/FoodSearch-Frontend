@@ -10,10 +10,19 @@
 	text-decoration: none;
 }
 
-.tittle h1 {
+.title h1 {
 	font-weight: 700;
 	font-size: 35px;
 	font-family: 'Arvo', serif;
 	color: #2e112d;
 	text-decoration: none;
+}
+@media only screen and (max-width: 1679px) {
+	.logo {
+		margin-top: 40px;
+		width: 800px;
+	}
+	.title h1 {
+		font-size: 65px;
+	}
 }
